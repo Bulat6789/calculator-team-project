@@ -4,16 +4,25 @@ function addToDisplay(value) {
     display.value += value;
 }
 
+function addFunction(func) {
+    display.value += func + '(';
+}
+
 function clearDisplay() {
     display.value = '';
 }
 
 function calculate() {
     try {
-        // Заменяем символы для корректного вычисления
-        let expression = display.value.replace('×', '*').replace('÷', '/');
+        let expression = display.value
+            .replace(/×/g, '*')
+            .replace(/÷/g, '/')
+            .replace(/sin\(/g, 'Math.sin(')
+            .replace(/cos\(/g, 'Math.cos(')
+            .replace(/tan\(/g, 'Math.tan(');
+
         display.value = eval(expression);
-    } catch (error) {
+    } catch {
         display.value = 'Ошибка';
     }
 }
