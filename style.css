@@ -57,7 +57,7 @@ button:hover {
 
 
 .equal {
-    grid-column: span 4;
+    grid-column: span 2;
     background-color: #dcdcdc;
     font-weight: bold;
 }

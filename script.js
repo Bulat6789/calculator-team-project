@@ -12,6 +12,32 @@ function clearDisplay() {
     display.value = '';
 }
 
+function square() {
+    try {
+        let value = parseFloat(display.value);
+        if (!isNaN(value)) {
+            display.value = Math.pow(value, 2);
+        } else {
+            display.value = 'Ошибка';
+        }
+    } catch {
+        display.value = 'Ошибка';
+    }
+}
+
+function cube() {
+    try {
+        let value = parseFloat(display.value);
+        if (!isNaN(value)) {
+            display.value = Math.pow(value, 3);
+        } else {
+            display.value = 'Ошибка';
+        }
+    } catch {
+        display.value = 'Ошибка';
+    }
+}
+
 function calculate() {
     try {
         let expression = display.value
