@@ -57,11 +57,20 @@ button:hover {
 
 
 .equal {
-    grid-column: span 2;
+    grid-column: span 1;
     background-color: #dcdcdc;
     font-weight: bold;
 }
 
 .equal:hover {
     background-color: #c8c8c8;
+}
+
+.memory {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.memory:hover {
+    background-color: #dfdfdf;
 }
