@@ -41,6 +41,25 @@ function cube() {
     }
 }
 
+function roundResult() {
+    try {
+        let value = parseFloat(display.value);
+        if (isNaN(value)) {
+            display.value = 'Ошибка';
+            return;
+        }
+
+        let lower = Math.floor(value);
+        let upper = Math.ceil(value);
+        let fractional = value - lower;
+
+        display.value = fractional >= 0.5 ? upper : lower;
+        lastResult = display.value;
+    } catch {
+        display.value = 'Ошибка';
+    }
+}
+
 function calculate() {
     try {
         let expression = display.value

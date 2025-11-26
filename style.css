@@ -26,6 +26,21 @@ body {
     box-sizing: border-box;
 }
 
+.round-btn {
+    width: 100%;
+    padding: 8px 0;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+.round-btn:hover {
+    background-color: #dcdcdc;
+}
+
 /* тригонометрия — 5 кнопок в ряд */
 .trig {
     display: grid;
