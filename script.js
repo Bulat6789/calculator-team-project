@@ -1,5 +1,9 @@
+// Импорт бизнес-логики из calculator.js
+// В браузере функции будут доступны глобально через script тег
 let display = document.getElementById('display');
-let lastResult = '';
+
+// Используем функции из calculator.js (если доступны в глобальной области)
+// Для браузера создадим обертки, которые работают с DOM
 
 function addToDisplay(value) {
     display.value += value;
@@ -14,72 +18,28 @@ function clearDisplay() {
 }
 
 function square() {
-    try {
-        let value = parseFloat(display.value);
-        if (!isNaN(value)) {
-            display.value = Math.pow(value, 2);
-            lastResult = display.value;
-        } else {
-            display.value = 'Ошибка';
-        }
-    } catch {
-        display.value = 'Ошибка';
-    }
+    const result = calculateSquare(display.value);
+    display.value = result;
 }
 
 function cube() {
-    try {
-        let value = parseFloat(display.value);
-        if (!isNaN(value)) {
-            display.value = Math.pow(value, 3);
-            lastResult = display.value;
-        } else {
-            display.value = 'Ошибка';
-        }
-    } catch {
-        display.value = 'Ошибка';
-    }
+    const result = calculateCube(display.value);
+    display.value = result;
 }
 
 function roundResult() {
-    try {
-        let value = parseFloat(display.value);
-        if (isNaN(value)) {
-            display.value = 'Ошибка';
-            return;
-        }
-
-        let lower = Math.floor(value);
-        let upper = Math.ceil(value);
-        let fractional = value - lower;
-
-        display.value = fractional >= 0.5 ? upper : lower;
-        lastResult = display.value;
-    } catch {
-        display.value = 'Ошибка';
-    }
+    const result = calculateRound(display.value);
+    display.value = result;
 }
 
 function calculate() {
-    try {
-        let expression = display.value
-            .replace(/×/g, '*')
-            .replace(/÷/g, '/')
-            .replace(/sin\(/g, 'Math.sin(')
-            .replace(/cos\(/g, 'Math.cos(')
-            .replace(/tan\(/g, 'Math.tan(');
-
-        display.value = eval(expression);
-        if (display.value !== 'Ошибка' && display.value !== '') {
-            lastResult = display.value;
-        }
-    } catch {
-        display.value = 'Ошибка';
-    }
+    const result = calculateExpression(display.value);
+    display.value = result;
 }
 
 function recallLastResult() {
-    if (lastResult !== '') {
-        display.value = lastResult;
+    const result = getLastResult();
+    if (result !== '') {
+        display.value = result;
     }
 }
