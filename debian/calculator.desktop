@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Calculator
+Name[ru]=Калькулятор
+Comment=Advanced calculator with mathematical functions
+Comment[ru]=Калькулятор с расширенными математическими функциями
+Exec=calculator
+Icon=calculator
+Categories=Office;Calculator;
+Terminal=false
+

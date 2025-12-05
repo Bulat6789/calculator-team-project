@@ -1,0 +1,21 @@
+Source: calculator
+Section: math
+Priority: optional
+Maintainer: Calculator Team <team@calculator.local>
+Build-Depends: debhelper (>= 11)
+Standards-Version: 4.1.3
+Homepage: https://github.com/calculator-team-project
+
+Package: calculator
+Architecture: all
+Depends: ${misc:Depends}, firefox | chromium-browser | google-chrome-stable
+Description: Advanced calculator with mathematical functions
+ Калькулятор с расширенными математическими функциями, включая
+ тригонометрию, округление, операции возведения в квадрат и куб,
+ а также вычисление выражений. Включает юнит-тесты для обеспечения
+ качества.
+ .
+ A web-based calculator application with advanced mathematical functions
+ including trigonometry, rounding, square, cube operations, and expression
+ evaluation. Includes unit tests for quality assurance.
+
