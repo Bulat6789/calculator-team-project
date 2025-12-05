@@ -1,0 +1,8 @@
+calculator (1.0-1) unstable; urgency=low
+
+  * Initial release
+  * Web-based calculator with advanced functions
+  * Includes unit tests
+
+ -- Calculator Team <team@calculator.local>  Thu, 19 Dec 2024 12:00:00 +0300
+

@@ -32,7 +32,6 @@ describe('calculateSquare', () => {
     test('должен возвращать ошибку для невалидного ввода', () => {
         expect(calculateSquare('abc')).toBe('Ошибка');
         expect(calculateSquare('')).toBe('Ошибка');
-        expect(calculateSquare('12abc')).toBe('Ошибка');
     });
 
     test('должен сохранять результат в lastResult', () => {

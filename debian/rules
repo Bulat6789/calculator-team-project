@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	dh_auto_install
+	install -d $(CURDIR)/debian/calculator/usr/share/calculator
+	install -d $(CURDIR)/debian/calculator/usr/bin
+	install -d $(CURDIR)/debian/calculator/usr/share/applications
+	
+	# Установка основных файлов
+	install -m 644 index.html $(CURDIR)/debian/calculator/usr/share/calculator/
+	install -m 644 calculator.js $(CURDIR)/debian/calculator/usr/share/calculator/
+	install -m 644 script.js $(CURDIR)/debian/calculator/usr/share/calculator/
+	install -m 644 style.css $(CURDIR)/debian/calculator/usr/share/calculator/
+	install -m 644 README.md $(CURDIR)/debian/calculator/usr/share/calculator/
+	install -m 644 calculator.test.js $(CURDIR)/debian/calculator/usr/share/calculator/
+	install -m 644 package.json $(CURDIR)/debian/calculator/usr/share/calculator/
+	
+	# Создание скрипта запуска
+	echo '#!/bin/bash' > $(CURDIR)/debian/calculator/usr/bin/calculator
+	echo 'xdg-open /usr/share/calculator/index.html 2>/dev/null || firefox /usr/share/calculator/index.html 2>/dev/null || echo "Пожалуйста, установите браузер"' >> $(CURDIR)/debian/calculator/usr/bin/calculator
+	chmod +x $(CURDIR)/debian/calculator/usr/bin/calculator
+	
+	# Создание .desktop файла
+	install -m 644 debian/calculator.desktop $(CURDIR)/debian/calculator/usr/share/applications/
+
+override_dh_auto_build:
+
